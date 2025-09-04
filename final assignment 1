@@ -1,0 +1,48 @@
+class Playlist:
+    def __init__(self):
+        self.songs = []
+        print("Playlist initialized")
+
+    def add_song(self, song_name):
+        self.songs.append(song_name)
+        print(f"Added song: '{song_name}' to the playlist")
+
+    def remove_song(self, index):
+        if 0 <= index < len(self.songs):
+            removed_song = self.songs.pop(index)
+            print(f"Removed song at index [{index}]: '{removed_song}'")
+        else:
+            print(f"Error: No song found at index {index}")
+
+    def display(self):
+        if not self.songs:
+            print("The playlist is empty.")
+        else:
+            print("\n--- Current Playlist Songs ---")
+            for i, song in enumerate(self.songs, 0):
+                print(f"[{i}] {song}")
+            print("------------------------------\n")
+
+
+def main():
+   
+    
+    my_playlist = Playlist()
+
+    
+    my_playlist.add_song("Ben&ben - Saranggola")
+    my_playlist.add_song("sombr - undressed")
+    my_playlist.add_song("Maroon5 - Sugar")
+    print("\nAfter adding songs:")
+    my_playlist.display()
+
+    
+    my_playlist.remove_song(1)
+
+    
+    print("\nAfter removing a song:")
+    my_playlist.display()
+
+
+if __name__ == "__main__":
+    main()
